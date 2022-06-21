@@ -18,6 +18,9 @@ $ npm i gulp-image -D # 예제에서 6.2.1 버전 사용해야 오류가 발생�
 $ npm i node-sass gulp-sass -D
 $ npm i gulp-autoprefixer -D
 $ npm i gulp-csso -D
+$ npm i gulp-bro -D
+$ npm i babelify -D
+$ npm i uglifyify -D
 
 # webserver
 $ npm i gulp-webserver -D
