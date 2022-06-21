@@ -24,4 +24,7 @@ $ npm i uglifyify -D
 
 # webserver
 $ npm i gulp-webserver -D
+
+# deploying
+$ npm i gulp-gh-pages -D
 ```

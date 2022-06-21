@@ -9,6 +9,7 @@ import autoprefixer from "gulp-autoprefixer";
 import miniCSS from "gulp-csso";
 import bro from "gulp-bro";
 import Babelify from "babelify";
+import ghPages from "gulp-gh-pages";
 
 const sass = gulp_sass(node_sass); // gulp-sass 5.0 버전에서 문법이 변경 되었다
 
@@ -34,10 +35,11 @@ const routes = {
   },
 };
 
+// TASKS...
 const pug = () =>
   gulp.src(routes.pug.src).pipe(gulp_pug()).pipe(gulp.dest(routes.pug.dest));
 
-const clean = () => del(["build"]);
+const clean = () => del(["build", ".publish"]);
 
 const webserver = () =>
   gulp.src("build").pipe(ws({ livereload: true, open: true }));
@@ -84,6 +86,9 @@ const js = () =>
     )
     .pipe(gulp.dest(routes.js.dest));
 
+const gh = () => gulp.src("build/**/*").pipe(ghPages());
+
+//
 const prepare = gulp.series([clean, img]);
 
 const assets = gulp.series([pug, styles, js]);
@@ -91,4 +96,6 @@ const assets = gulp.series([pug, styles, js]);
 const postDev = gulp.parallel([webserver, watch]);
 
 // export를 해야만 console 혹은 package.json에서 사용 가능하다.
-export const dev = gulp.series([prepare, assets, postDev]);
+export const build = gulp.series([prepare, assets]);
+export const dev = gulp.series([build, postDev]);
+export const deploy = gulp.series([build, gh, clean]);
