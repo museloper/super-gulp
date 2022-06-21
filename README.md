@@ -13,4 +13,8 @@ $ npm i @babel/register @babel/core @babel/preset-env -D
 
 # Plugins...
 $ npm i gulp-pug -D
+$ npm i del -D
+
+# webserver
+$ npm i gulp-webserver -D
 ```

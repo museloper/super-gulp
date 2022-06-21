@@ -1,9 +1,11 @@
 import gulp from "gulp";
 import gulp_pug from "gulp-pug";
 import del from "del";
+import ws from "gulp-webserver";
 
 const routes = {
   pug: {
+    watch: "src/**/*.pug",
     src: "src/*.pug",
     dest: "build",
   },
@@ -14,9 +16,18 @@ const pug = () =>
 
 const clean = () => del(["build"]);
 
+const webserver = () =>
+  gulp.src("build").pipe(ws({ livereload: true, open: true }));
+
+const watch = () => {
+  gulp.watch(routes.pug.watch, pug);
+};
+
 const prepare = gulp.series([clean]);
 
 const assets = gulp.series([pug]);
 
+const postDev = gulp.parallel([webserver, watch]);
+
 // export를 해야만 console 혹은 package.json에서 사용 가능하다.
-export const dev = gulp.series([prepare, assets]);
+export const dev = gulp.series([prepare, assets, postDev]);
