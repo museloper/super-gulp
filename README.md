@@ -14,6 +14,10 @@ $ npm i @babel/register @babel/core @babel/preset-env -D
 # Plugins...
 $ npm i gulp-pug -D
 $ npm i del -D
+$ npm i gulp-image -D # 예제에서 6.2.1 버전 사용해야 오류가 발생하지 않음
+$ npm i node-sass gulp-sass -D
+$ npm i gulp-autoprefixer -D
+$ npm i gulp-csso -D
 
 # webserver
 $ npm i gulp-webserver -D
