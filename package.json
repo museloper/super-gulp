@@ -1,0 +1,26 @@
+{
+  "name": "supergulp",
+  "version": "1.0.0",
+  "description": "Learn Gulp!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/museloper/super-gulp.git"
+  },
+  "author": "museloper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/museloper/super-gulp/issues"
+  },
+  "homepage": "https://github.com/museloper/super-gulp#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/register": "^7.17.7"
+  }
+}
